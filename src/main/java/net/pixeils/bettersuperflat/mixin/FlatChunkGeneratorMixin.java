@@ -9,6 +9,9 @@ import net.minecraft.world.gen.chunk.FlatChunkGenerator;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
+
 @Mixin(FlatChunkGenerator.class)
 public class FlatChunkGeneratorMixin {
 
@@ -18,7 +21,7 @@ public class FlatChunkGeneratorMixin {
      */
 
     @Overwrite
-    public void populateNoise(WorldAccess world, StructureAccessor structureAccessor, Chunk chunk) {
+    public CompletableFuture<Chunk> populateNoise(Executor ex, StructureAccessor structureAccessor, Chunk chunk) {
         for (int j = 0; j < 16; ++j) {
             for (int k = 0; k < 16; ++k) {
                 BlockPos pos = chunk.getPos().getStartPos();
@@ -92,5 +95,6 @@ public class FlatChunkGeneratorMixin {
                 }
             }
         }
+        return CompletableFuture.completedFuture(chunk);
     }
 }

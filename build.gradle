@@ -1,7 +1,7 @@
 import java.text.SimpleDateFormat
 
 plugins {
-	id 'fabric-loom' version '0.9-SNAPSHOT'
+	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -22,12 +22,12 @@ minecraft {
 }
 
 dependencies {
-	minecraft "com.mojang:minecraft:1.16.5"
-	mappings "net.fabricmc:yarn:1.16.5+build.10:v2"
-	modImplementation "net.fabricmc:fabric-loader:0.12.12"
+	minecraft "com.mojang:minecraft:1.17.1"
+	mappings "net.fabricmc:yarn:1.17.1+build.65"
+	modImplementation "net.fabricmc:fabric-loader:0.14.8"
 
 	//Fabric api
-	modImplementation "net.fabricmc.fabric-api:fabric-api:0.42.0+1.16"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:0.46.1+1.17"
 }
 
 task zipDatapack(type: Zip) {

@@ -77,9 +77,9 @@ public class ChunkGenerator extends NoiseChunkGenerator {
 
         BlockPos pos =
                 new BlockPos(
-                        region.getCenterChunkX(),
+                        region.getCenterPos().x,
                         region.getHeight() - 256,
-                        region.getCenterChunkZ());
+                        region.getCenterPos().z);
 
             if (chunk.getPos().getEndX() >= 0) {
                 if (chunk.getPos().getEndZ() >= 0) {
@@ -202,7 +202,7 @@ public class ChunkGenerator extends NoiseChunkGenerator {
 
     @Override
     public void generateFeatures(ChunkRegion region, StructureAccessor accessor) {
-        ChunkPos chunkPos = new ChunkPos(region.getCenterChunkX(),region.getCenterChunkZ());
+        ChunkPos chunkPos = new ChunkPos(region.getCenterPos().x,region.getCenterPos().z);
         BlockPos pos = new BlockPos(chunkPos.getStartX(), 0, chunkPos.getStartZ());
         int startX = chunkPos.getStartX();
         int startZ = chunkPos.getStartZ();
